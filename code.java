@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-class Genesis{
+public class Genesis{
     public static Node genesis=null;
     public static GeneratePrime generatePrime;
     public static int nodeNumber=0;
@@ -8,6 +8,10 @@ class Genesis{
         generatePrime = new GeneratePrime();
         BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
         System.out.println("---Genesis Node---");
+        System.out.println("Enter the password");
+        String password = br.readLine();
+        if(!verifiedUser(password,nodeNumber))
+            System.exit(0);
         System.out.println("Enter the date hyphen(-) separated (dd-mm-yyyy)");
         do{
             String[] timestamp=br.readLine().split("-");
@@ -92,6 +96,20 @@ class Genesis{
             ans+=String.valueOf(z);
         }
         return ans;
+    }
+    
+    public static boolean verifiedUser(String password,int nodeNumber){
+        String ans="";
+        int hashValue = GeneratePrime.getPrime(nodeNumber);
+        for(int i=0;i<data.length();i++){
+            int a=(int)(data.charAt(i));
+            a=a*hashValue*hashValue;
+            a=a%26;
+            a=a+65;
+            char z=(char)a;
+            ans+=String.valueOf(z);
+        }
+        return ans.equals(password);
     }
     
     public static boolean checkValidDate(String[] timeStamp){
