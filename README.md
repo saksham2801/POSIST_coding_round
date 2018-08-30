@@ -8,4 +8,5 @@ this code consists of the nodes and their child nodes. Didn't get the time to ap
 - Node adding and creating new Nodes Done successfully.
 - longest chain of the genesis and on any node done successfully.
 - edit value of node done successfully.
+- merge 2 nodes done.
 - have a doubt verification of the owner but applied. And can easily be done at the right place. Just made the function.
