@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-public class Genesis{
+class Genesis{
     public static Node genesis=null;
     public static GeneratePrime generatePrime;
     public static int nodeNumber=0;
@@ -143,7 +143,7 @@ public class Genesis{
             tempAns=0;
             if(!nodeStatus[i]){
                 longestChainUtil(genesis,i);
-                longestChainAns=Math.max(longestChainUtil,tempAns);
+                longestChainAns=Math.max(longestChainAns,tempAns);
             }
         }
         return longestChainAns;
