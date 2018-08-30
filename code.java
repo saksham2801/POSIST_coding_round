@@ -117,6 +117,12 @@ public class Genesis{
         Time t = a.timestamp;
         String data=a.data+b.data;
         a.setData(t,data,nodeNo,id,a.referenceNodeId,a.childReferenceNodeId,genesis);
+        Iterator itr=b.childReferenceNodeId.iterator();
+        HashSet<Node> hs=new HashSet<>();
+        while(itr.hasNext()){
+            hs.add((Node)itr.next());
+        }
+        a.setData(t,data,nodeNo,id,a.referenceNodeId,hs,genesis);
         Node temp=b.referenceNodeId;
         temp.childReferenceNodeId.remove(b);
     }
