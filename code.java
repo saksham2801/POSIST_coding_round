@@ -112,6 +112,15 @@ public class Genesis{
         return ans.equals(password);
     }
     
+    public static void mergeNodes(Node a,Node b){
+        int nodeNo = a.nodeNumber+b.nodeNumber;
+        Time t = a.timestamp;
+        String data=a.data+b.data;
+        a.setData(t,data,nodeNo,id,a.referenceNodeId,a.childReferenceNodeId,genesis);
+        Node temp=b.referenceNodeId;
+        temp.childReferenceNodeId.remove(b);
+    }
+    
     public static boolean checkValidDate(String[] timeStamp){
         if(timeStamp.length!=3)
             return false;
